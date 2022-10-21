@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Operator;
 
 class OpeController extends Controller
 {
@@ -13,7 +14,9 @@ class OpeController extends Controller
      */
     public function index()
     {
-        //
+        $ope = Operator::all();
+        $nomor =1;
+        return view('operator.index',compact('ope','nomor'));
     }
 
     /**
@@ -23,7 +26,7 @@ class OpeController extends Controller
      */
     public function create()
     {
-        //
+        return view('operator.form');
     }
 
     /**
@@ -34,7 +37,13 @@ class OpeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ope = new Operator;
+        
+        $ope->nama_ope = $request->nama;
+        $ope->alamat_ope = $request->alamat;
+        $ope->no_hp_ope = $request->no_hp;
+        $ope->save();
+        return redirect('/operator');
     }
 
     /**
@@ -56,7 +65,8 @@ class OpeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ope = Operator::find($id);
+        return view('operator.edit',compact('ope'));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OpeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//route operator
+Route::get('/operator',[OpeController::class, 'index']);
+Route::get('/operator/form',[OpeController::class, 'create']);
+Route::post('/operator/store',[OpeController::class, 'store']);
+Route::get('/operator/edit/{id}',[OpeController::class, 'edit']);
+Route::put('/operator/{id}',[OpeController::class, 'update']);
+Route::delete('/operator/{id}',[OpeController::class, 'destroy']);
