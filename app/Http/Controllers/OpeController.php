@@ -78,7 +78,13 @@ class OpeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ope = Operator::find($id);
+
+        $ope->nama_ope = $request->nama;
+        $ope->alamat_ope = $request->alamat;
+        $ope->no_hp_ope = $request->no_hp;
+        $ope->save();
+        return redirect('/operator');
     }
 
     /**
@@ -89,6 +95,8 @@ class OpeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ope = Operator::find($id);
+        $ope->delete();
+        return redirect('/operator');
     }
 }

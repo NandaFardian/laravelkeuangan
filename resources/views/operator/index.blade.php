@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  {{-- bootstrap --}}
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -41,7 +43,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="index3.html" class="brand-link" style="text-decoration:none">
       {{-- <img src="dist/img/door.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
       <span class="brand-text font-weight-light">Bintang Terang <i>Carwash</i></span>
     </a>
@@ -54,7 +56,7 @@
           <img src="dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="#" class="d-block" style="text-decoration:none">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -159,7 +161,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <a href="/operator/form" class="float-start btn btn-success">Tambah Data</a>
+                <a href="/operator/form" class="btn btn-success">Tambah Data</a>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -193,7 +195,7 @@
                                         </div>
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <form method="post" action="/ope/{{$item->id}}">
+                                            <form method="post" action="/operator/{{$item->id}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-primary">Hapus</button>
@@ -260,6 +262,7 @@
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
